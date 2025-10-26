@@ -28,7 +28,38 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        $user = Auth::user();
+
+        if (!$user) {
+            return redirect()->route('login')->withErrors([
+                'auth' => 'Gagal mendapatkan data pengguna.',
+            ]);
+        }
+
+        // if ($user->role->name_role === 'admin') {
+        //     return redirect()->route('admin.dashboard');
+        // } elseif ($user->role->name_role === 'dosen') {
+        //     return redirect()->route('dosen.dashboard');
+        // } elseif ($user->role->name_role === 'mahasiswa') {
+        //     return redirect()->route('mahasiswa.dashboard');
+        // }
+
+        // // fallback jika role tidak terdefinisi
+        // return redirect()->route('login')->withErrors(['role' => 'Role pengguna tidak dikenal.']);
+        // redirect berdasarkan role
+        switch ($user->role->name_role) {
+            case 'admin':
+                return redirect()->route('admin.dashboard');
+            case 'dosen':
+                return redirect()->route('dosen.dashboard');
+            case 'mahasiswa':
+                return redirect()->route('mahasiswa.dashboard');
+            default:
+                Auth::logout();
+                return redirect()->route('login')->withErrors([
+                    'role' => 'Role pengguna tidak dikenali.',
+                ]);
+        }
     }
 
     /**

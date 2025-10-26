@@ -92,7 +92,7 @@
                                     <img class="w-8 h-8 rounded-full"
                                         src="https://placehold.co/32x32/1e40af/ffffff?text=U" alt="Foto Profil">
                                     <span class="text-sm font-medium text-gray-900 hidden md:inline">
-                                        {{ Auth::user()->name ?? 'Admin' }}
+                                        {{ Auth::user()->name ?? 'Mahasiswa' }}
                                     </span>
                                     <svg class="fill-current h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20">
@@ -133,11 +133,12 @@
         <aside id="sidebar"
             class="fixed top-[72px] left-0 z-40 w-64 h-[calc(100%-72px)] pt-8 bg-kampus-gelap text-white overflow-y-auto transform -translate-x-full transition-transform lg:translate-x-0"
             aria-label="Sidebar">
-            @include('admin.sideadmin')
+            @include('mahasiswa.sidemahasiswa')
         </aside>
 
         <!-- MAIN CONTENT AREA -->
         {{ $slot }}
+
     </div>
 
 

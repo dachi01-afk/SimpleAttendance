@@ -35,8 +35,9 @@
         <!-- Area Logo (Siap ditambahkan logo klinik Anda) -->
         <div class="flex flex-col items-center justify-center mb-6">
             <!-- LOGO KLINIK DITAMBAHKAN DI SINI -->
-            <img src="{{ asset('storage/assets/royal_klinik.svg') }}" alt="Logo Royal Klinik" class="h-20 w-auto mb-4" />
-            <!-- Placeholder [LOGO KLINIK ANDA] Dihapus -->
+            {{-- <img src="{{ asset('storage/assets/royal_klinik.svg') }}" alt="Logo Royal Klinik" class="h-20 w-auto mb-4" /> --}}
+            <img src="{{ asset('storage/assets/royal_klinik.svg') }}" alt="Logo Royal Klinik"
+                class="block mx-auto h-20 w-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] mb-4" />
 
             <h1 class="text-xl font-semibold text-gray-700">LOGIN</h1>
             {{-- <p class="text-sm text-gray-400">Silakan LOGIN</p> --}}

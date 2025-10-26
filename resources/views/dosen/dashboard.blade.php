@@ -1,4 +1,4 @@
-<x-mycomponents.layoutadmin>
+<x-mycomponents.layoutdosen>
 
     <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-20">
         <!-- Breadcrumb & Greeting -->
@@ -277,4 +277,4 @@
 
     </main>
 
-</x-mycomponents.layoutadmin>
+</x-mycomponents.layoutdosen>

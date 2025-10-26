@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('semester');
             $table->string('tahun_ajaran');
             $table->timestamps();
-            // $table->unique(['dosen_id', 'mata_kuliah_id', 'kelas', 'semester', 'tahun_ajaran'], 'unique_jadwal');
         });
     }
 
