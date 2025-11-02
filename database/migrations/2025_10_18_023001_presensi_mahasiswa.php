@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('presensi_mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mahasiswa_id')->constrained('mahasiswas')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('dosen_id')->constrained('dosens')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('jadwal_id')->constrained('jadwal_kuliahs')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreignId('token_id')->constrained('token_presensis')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('mahasiswa_id')->constrained('mahasiswas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('dosen_id')->constrained('dosens')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('jadwal_kuliah_id')->constrained('jadwal_kuliahs')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('token_id')->constrained('token_presensis')->onUpdate('cascade')->onDelete('cascade');
             $table->date('tanggal');
             $table->dateTime('waktu_presensi');
             $table->enum('status', ['hadir', 'izin', 'sakit', 'alpha'])->default('hadir');

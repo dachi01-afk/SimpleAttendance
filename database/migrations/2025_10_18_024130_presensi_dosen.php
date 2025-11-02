@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('presensi_dosens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('dosen_id')->constrained('dosens')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreignId('dosen_id')->constrained('dosens')->onUpdate('cascade')->onDelete('cascade');
             $table->date('tanggal');
             $table->dateTime('jam_masuk')->nullable();
             $table->dateTime('jam_pulang')->nullable();
             $table->enum('status', ['hadir', 'izin', 'sakit', 'alpha'])->default('hadir');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

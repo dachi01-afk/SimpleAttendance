@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('token_presensis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jadwal_id')->constrained('jadwal_kuliahs')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('dosen_id')->constrained('jadwal_kuliahs')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('dosen_id')->constrained('dosens')->onUpdate('cascade')->onDelete('cascade');
             $table->string('token');
             $table->dateTime('waktu_mulai');
             $table->dateTime('waktu_selesai');

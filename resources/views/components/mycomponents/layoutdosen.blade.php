@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Presensi Kampus</title>
+    <title>Presensi</title>
+    <link href='{{ asset('storage/assets/logo.png') }}' rel='shortcut icon'>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <!-- Load Flowbite JS (for components like mobile sidebar/drawer) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
@@ -59,7 +60,7 @@
                         <!-- Lingkaran berisi logo -->
                         <div
                             class="w-10 h-10 sm:w-12 sm:h-12 bg-kampus-utama rounded-full flex items-center justify-center">
-                            <img src="{{ asset('storage/assets/royal_klinik.svg') }}" alt="Logo Royal Klinik"
+                            <img src="{{ asset('storage/assets/logo.png') }}" alt="Logo Royal Klinik"
                                 class="h-6 w-6 sm:h-8 sm:w-8 object-contain" />
                         </div>
 

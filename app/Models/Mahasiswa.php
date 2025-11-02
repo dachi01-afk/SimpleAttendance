@@ -13,6 +13,18 @@ class Mahasiswa extends Model
         return $this->belongsTo(User::class);
     }
 
+    // Relasi ke Jadwal (Many-to-Many)
+    public function jadwalKuliahs()
+    {
+        return $this->belongsToMany(JadwalKuliah::class)
+            ->withTimestamps();
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
+
     public function presensiMahasiswa()
     {
         return $this->hasMany(PresensiMahasiswa::class);

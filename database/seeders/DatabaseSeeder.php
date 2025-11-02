@@ -29,12 +29,14 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             DosenSeeder::class,
+            KelasSeeder::class,
             MahasiswaSeeder::class,
             MataKuliahSeeder::class,
             JadwalKuliahSeeder::class,
             TokenPresensiSeeder::class,
             PresensiMahasiswaSeeder::class,
             PresensiDosenSeeder::class,
+            JadwalMahasiswaSeeder::class,
         ]);
     }
 }

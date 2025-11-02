@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Presensi Kampus</title>
+    <title>Presensi</title>
+    <link href='{{ asset('storage/assets/logo.png') }}' rel='shortcut icon'>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <!-- Load Flowbite JS (for components like mobile sidebar/drawer) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <style>
         /* Custom Font - Inter (Tailwind default is good, but explicitly setting it) */
         body {
@@ -33,6 +32,12 @@
             border-radius: 0.5rem;
         }
     </style>
+
+    {{-- flowbite --}}
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
+
 </head>
 
 <body class="bg-gray-50 antialiased">
@@ -59,7 +64,7 @@
                         <!-- Lingkaran berisi logo -->
                         <div
                             class="w-10 h-10 sm:w-12 sm:h-12 bg-kampus-utama rounded-full flex items-center justify-center">
-                            <img src="{{ asset('storage/assets/royal_klinik.svg') }}" alt="Logo Royal Klinik"
+                            <img src="{{ asset('storage/assets/logo.png') }}" alt="Logo Royal Klinik"
                                 class="h-6 w-6 sm:h-8 sm:w-8 object-contain" />
                         </div>
 
@@ -104,9 +109,9 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-dropdown-link :href="route('profile.edit')">
+                                {{-- <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('Profile') }}
-                                </x-dropdown-link>
+                                </x-dropdown-link> --}}
 
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">
@@ -168,6 +173,13 @@
         }
     </script>
 
+    {{-- flowbite --}}
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    @stack('scripts')
 </body>
 
 </html>

@@ -1,13 +1,17 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\admin\DosenController;
+use App\Http\Controllers\admin\MahasiswaController;
+use App\Http\Controllers\admin\MatakuliahController;
+use App\Http\Controllers\admin\JadwalKuliahController;
+use App\Http\Controllers\admin\DashboardAdminController;
+use App\Http\Controllers\admin\LaporanPresensiController;
 
 Route::get('/', function () {
     return redirect()->route('login');
 });
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -15,10 +19,28 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
+    // Dashboard admin
+    Route::get('/dashboard', [DashboardAdminController::class, 'index'])
+        ->name('admin.dashboard');
+
+    // Resource controller untuk dosen
+    Route::resource('dosens', DosenController::class);
+
+    // Resource controller untuk mahasiswa
+    Route::resource('mahasiswas', MahasiswaController::class);
+
+    // Resource controller untuk matakuliah
+    Route::resource('matakuliahs', MatakuliahController::class);
+
+    // Resource controller untuk matakuliah
+    Route::resource('jadwal_kuliahs', JadwalKuliahController::class);
+
+    // Laporan Presensi
+    Route::prefix('laporan')->name('laporan.')->group(function () {
+        Route::get('/dosen',       [LaporanPresensiController::class, 'laporanPresensiDosen'])->name('presensi.dosen');
+        Route::get('/mahasiswa',   [LaporanPresensiController::class, 'laporanPresensiMhs'])->name('presensi.mahasiswa');
+    });
 });
 
 Route::middleware(['auth', 'role:dosen'])->group(function () {

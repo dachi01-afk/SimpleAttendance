@@ -2,8 +2,10 @@
     <ul class="space-y-2 font-medium">
         <!-- DASHBOARD -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white bg-kampus-utama rounded-lg">
-                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            <a href="{{ route('admin.dashboard') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('admin.dashboard') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4 10v10h5v-6h6v6h5V10" />
                 </svg>
@@ -13,7 +15,9 @@
 
         <!-- Data Dosen -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('dosens.index') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('dosens.*') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -26,7 +30,9 @@
 
         <!-- Data Mahasiswa -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('mahasiswas.index') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('mahasiswas.*') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -38,7 +44,9 @@
 
         <!-- Data Mata Kuliah -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('matakuliahs.index') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('matakuliahs.*') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
@@ -50,7 +58,9 @@
 
         <!-- Jadwal Kuliah -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('jadwal_kuliahs.index') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('jadwal_kuliahs.*') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -62,7 +72,9 @@
 
         <!-- Laporan Presensi Dosen -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('laporan.presensi.dosen') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('laporan.presensi.dosen') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -74,7 +86,9 @@
 
         <!-- Laporan Presensi Mahasiswa -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('laporan.presensi.mahasiswa') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('laporan.presensi.mahasiswa') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"

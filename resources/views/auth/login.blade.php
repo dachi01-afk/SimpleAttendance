@@ -4,26 +4,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link href='{{ asset('storage/assets/royal_klinik.svg') }}' rel='shortcut icon'>
+    <title>Presensi</title>
+    <link href='{{ asset('storage/assets/logo.png') }}' rel='shortcut icon'>
     <!-- Asumsi Anda sudah menjalankan npm run dev atau npm run build -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         /* Gaya kustom untuk memastikan tampilan modern dan responsif */
         .clinic-bg {
             /* Warna latar belakang cerah dan menenangkan (Sky Blue Light) */
-            background-color: #f0f9ff;
+            /* background-color: #f0f9ff; */
+            background-color: #f8fafc;
             /* Light Sky Blue */
         }
 
         .clinic-card {
-            /* Bayangan lembut untuk kesan profesional */
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 0 10px -5px rgba(0, 0, 0, 0.04);
+            /* Bayangan lembut untuk kesan profesional, disesuaikan agar lebih mirip dashboard */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 0 4px rgba(0, 0, 0, 0.04);
             transition: transform 0.3s ease;
         }
 
         .clinic-card:hover {
             transform: translateY(-2px);
+        }
+
+        /* PERUBAHAN: Gaya untuk input saat fokus (agar lebih selaras dengan aksen biru dashboard) */
+        .input-focus:focus {
+            border-color: #0ea5e9 !important;
+            /* Sky-600 */
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3) !important;
+            /* Ring fokus biru muda */
         }
     </style>
 </head>
@@ -35,12 +44,11 @@
         <!-- Area Logo (Siap ditambahkan logo klinik Anda) -->
         <div class="flex flex-col items-center justify-center mb-6">
             <!-- LOGO KLINIK DITAMBAHKAN DI SINI -->
-            {{-- <img src="{{ asset('storage/assets/royal_klinik.svg') }}" alt="Logo Royal Klinik" class="h-20 w-auto mb-4" /> --}}
-            <img src="{{ asset('storage/assets/royal_klinik.svg') }}" alt="Logo Royal Klinik"
+            <img src="{{ asset('storage/assets/logo.png') }}" alt="Logo Presensi"
                 class="block mx-auto h-20 w-auto max-w-[100px] sm:max-w-[120px] md:max-w-[150px] mb-4" />
 
-            <h1 class="text-xl font-semibold text-gray-700">LOGIN</h1>
-            {{-- <p class="text-sm text-gray-400">Silakan LOGIN</p> --}}
+            <p class="text-sm font-medium text-sky-600 mb-1 tracking-wider">SISTEM PRESENSI KAMPUS</p>
+            <h1 class="text-2xl font-bold text-gray-800">MASUK</h1>
         </div>
 
         <!-- Session Status -->
@@ -60,7 +68,7 @@
                 <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
                     autocomplete="username"
                     class="w-full border-gray-300 focus:border-sky-500 focus:ring-sky-500 rounded-lg shadow-sm p-3"
-                    placeholder="nama@kliniksehat.com">
+                    placeholder="">
                 @error('email')
                     <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                 @enderror
@@ -71,7 +79,7 @@
                 <label for="password" class="block font-medium text-sm text-gray-700 mb-1">Password</label>
                 <input id="password" type="password" name="password" required autocomplete="current-password"
                     class="w-full border-gray-300 focus:border-sky-500 focus:ring-sky-500 rounded-lg shadow-sm p-3"
-                    placeholder="Masukkan password Anda">
+                    placeholder="">
                 @error('password')
                     <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                 @enderror

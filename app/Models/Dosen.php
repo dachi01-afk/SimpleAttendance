@@ -16,7 +16,7 @@ class Dosen extends Model
 
     public function jadwalKuliah()
     {
-        return $this->hasMany(JadwalKuliah::class);
+        return $this->hasMany(JadwalKuliah::class, 'dosen_id');
     }
 
     public function presensiDosen()

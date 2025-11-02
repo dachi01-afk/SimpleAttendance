@@ -13,9 +13,21 @@ class JadwalKuliah extends Model
         return $this->belongsTo(Dosen::class);
     }
 
+    // Relasi ke Mahasiswa (Many-to-Many)
+    public function mahasiswas()
+    {
+        return $this->belongsToMany(Mahasiswa::class, 'jadwal_mahasiswas', 'jadwal_id', 'mahasiswa_id')
+            ->withTimestamps();
+    }
+
     public function mataKuliah()
     {
         return $this->belongsTo(MataKuliah::class);
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
     }
 
     public function tokenPresensi()

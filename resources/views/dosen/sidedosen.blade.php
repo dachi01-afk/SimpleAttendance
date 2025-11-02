@@ -2,8 +2,10 @@
     <ul class="space-y-2 font-medium">
         <!-- DASHBOARD -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white bg-kampus-utama rounded-lg">
-                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            <a href="{{ route('dosen.dashboard') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('admin.dashboard') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4 10v10h5v-6h6v6h5V10" />
                 </svg>
