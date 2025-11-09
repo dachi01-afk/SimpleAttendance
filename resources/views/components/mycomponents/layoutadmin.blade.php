@@ -40,7 +40,7 @@
 
 </head>
 
-<body class="bg-gray-50 antialiased">
+<body class="bg-gray-50 antialiased flex flex-col min-h-screen">
 
     <!-- 1. NAVIGATION BAR (Header) -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -131,23 +131,26 @@
 
     <!-- 2. SIDEBAR (Navigation Menu) -->
     <!-- Mobile overlay (Hidden by default, shown when sidebar opens on mobile) -->
-    <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 z-30 bg-gray-900/50 hidden lg:hidden"></div>
+    <div class="flex-grow pt-[72px]">
+        <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 z-30 bg-gray-900/50 hidden lg:hidden"></div>
 
-    <div>
-        {{-- Menu --}}
-        <aside id="sidebar"
-            class="fixed top-[72px] left-0 z-40 w-64 h-[calc(100%-72px)] pt-8 bg-kampus-gelap text-white overflow-y-auto transform -translate-x-full transition-transform lg:translate-x-0"
-            aria-label="Sidebar">
-            @include('admin.sideadmin')
-        </aside>
+        <div>
+            {{-- Menu --}}
+            <aside id="sidebar"
+                class="fixed top-[72px] left-0 z-40 w-64 h-[calc(100%-72px)] pt-8 bg-kampus-gelap text-white overflow-y-auto transform -translate-x-full transition-transform lg:translate-x-0"
+                aria-label="Sidebar">
+                @include('admin.sideadmin')
+            </aside>
 
-        <!-- MAIN CONTENT AREA -->
-        {{ $slot }}
+            <!-- MAIN CONTENT AREA -->
+            {{ $slot }}
+        </div>
     </div>
 
 
     <!-- Footer -->
-    <footer class="lg:ml-64 p-4 bg-white border-t md:flex md:items-center md:justify-between md:p-6 shadow-t-lg">
+    <footer
+        class=" mt-auto lg:ml-64 p-4 bg-white border-t md:flex md:items-center md:justify-between md:p-6 shadow-t-lg">
         <span class="text-sm text-gray-500 sm:text-center">© 2025 Presensi Kampus. All Rights Reserved.
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">

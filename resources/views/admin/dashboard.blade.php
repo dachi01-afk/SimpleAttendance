@@ -1,6 +1,6 @@
 <x-mycomponents.layoutadmin>
 
-    <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-20">
+    <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-2">
         <!-- Breadcrumb & Greeting -->
         <nav class="flex mb-2" aria-label="Breadcrumb">
             <h1 class="text-2xl font-semibold text-gray-900 mb-2">Dashboard</h1>
@@ -90,13 +90,14 @@
             </div>
 
             <!-- Left Column: Upcoming Classes/Attendance Today -->
-            <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+            <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg border border-gray-200 overflow-x-auto">
+                {{-- <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 overflow-x-auto"> --}}
                 <h2 class="text-2xl font-semibold text-gray-800 mb-4">Presensi Hari Ini - <span
                         class="text-kampus-utama">{{ $hariIni }}</span></h2>
 
                 {{-- data tabel --}}
-                <div class="container">
-                    <table id="jadwalKuliahTable" class="display min-w-full border border-gray-200">
+                <div class="w-full overflow-x-auto">
+                    <table id="jadwalKuliahTableDashboard" class="display min-w-full border border-gray-200">
                         <thead class="bg-blue-600 text-white">
                             <tr>
                                 <th class="px-4 py-2 text-center">Dosen</th>
@@ -139,6 +140,17 @@
             <div class="h-16"></div>
         </div>
 
+        @push('scripts')
+            <script>
+                $(document).ready(function() {
+                    $('#jadwalKuliahTableDashboard').DataTable({
+                        responsive: true,
+                        autoWidth: false,
+                        scrollX: true
+                    });
+                });
+            </script>
+        @endpush
     </main>
 
 </x-mycomponents.layoutadmin>

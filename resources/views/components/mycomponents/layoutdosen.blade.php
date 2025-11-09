@@ -36,7 +36,7 @@
     </style>
 </head>
 
-<body class="bg-gray-50 antialiased">
+<body class="bg-gray-50 antialiased flex flex-col min-h-screen">
 
     <!-- 1. NAVIGATION BAR (Header) -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -93,7 +93,7 @@
                                     <img class="w-8 h-8 rounded-full"
                                         src="https://placehold.co/32x32/1e40af/ffffff?text=U" alt="Foto Profil">
                                     <span class="text-sm font-medium text-gray-900 hidden md:inline">
-                                        {{ Auth::user()->name ?? 'Dosen' }}
+                                        {{ Auth::user()->dosen->nama_dosen ?? 'Dosen' }}
                                     </span>
                                     <svg class="fill-current h-4 w-4 text-gray-500" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20">
@@ -105,9 +105,9 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-dropdown-link :href="route('profile.edit')">
+                                {{-- <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('Profile') }}
-                                </x-dropdown-link>
+                                </x-dropdown-link> --}}
 
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">
@@ -127,24 +127,27 @@
 
     <!-- 2. SIDEBAR (Navigation Menu) -->
     <!-- Mobile overlay (Hidden by default, shown when sidebar opens on mobile) -->
-    <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 z-30 bg-gray-900/50 hidden lg:hidden"></div>
+    <div class="flex-grow pt-[72px]">
+        <div id="overlay" onclick="toggleSidebar()" class="fixed inset-0 z-30 bg-gray-900/50 hidden lg:hidden">
+        </div>
 
-    <div>
-        {{-- Menu --}}
-        <aside id="sidebar"
-            class="fixed top-[72px] left-0 z-40 w-64 h-[calc(100%-72px)] pt-8 bg-kampus-gelap text-white overflow-y-auto transform -translate-x-full transition-transform lg:translate-x-0"
-            aria-label="Sidebar">
-            @include('dosen.sidedosen')
-        </aside>
+        <div>
+            {{-- Menu --}}
+            <aside id="sidebar"
+                class="fixed top-[72px] left-0 z-40 w-64 h-[calc(100%-72px)] pt-8 bg-kampus-gelap text-white overflow-y-auto transform -translate-x-full transition-transform lg:translate-x-0"
+                aria-label="Sidebar">
+                @include('dosen.sidedosen')
+            </aside>
 
-        <!-- MAIN CONTENT AREA -->
-        {{ $slot }}
+            <!-- MAIN CONTENT AREA -->
+            {{ $slot }}
 
+        </div>
     </div>
 
 
     <!-- Footer -->
-    <footer class="lg:ml-64 p-4 bg-white border-t md:flex md:items-center md:justify-between md:p-6 shadow-t-lg">
+    <footer class="mt-auto lg:ml-64 p-4  border-t md:flex md:items-center md:justify-between md:p-6 shadow-t-lg">
         <span class="text-sm text-gray-500 sm:text-center">© 2025 Presensi Kampus. All Rights Reserved.
         </span>
         <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">

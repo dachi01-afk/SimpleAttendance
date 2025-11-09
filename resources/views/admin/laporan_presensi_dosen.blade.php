@@ -1,6 +1,6 @@
 <x-mycomponents.layoutadmin>
     {{-- <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-20"> --}}
-    <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-20">
+    <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-2">
 
         <!-- Breadcrumb & Greeting -->
         <nav class="flex mb-2" aria-label="Breadcrumb">
@@ -37,7 +37,11 @@
         @push('scripts')
             <script>
                 $(document).ready(function() {
-                    $('#dosenTable').DataTable();
+                    $('#dosenTable').DataTable({
+                        responsive: true,
+                        autoWidth: false,
+                        scrollX: true
+                    });
                 });
             </script>
         @endpush

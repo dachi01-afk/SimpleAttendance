@@ -1,6 +1,6 @@
 <x-mycomponents.layoutadmin>
     {{-- <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-20"> --}}
-    <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-20" x-data="{
+    <main id="main-content" class="p-4 lg:ml-64 mt-16 lg:mt-2" x-data="{
         openAdd: {{ $errors->any() && session('form') === 'add' ? 'true' : 'false' }},
         openEdit: {{ $errors->any() && session('form') === 'edit' ? 'true' : 'false' }},
         openDelete: false,
@@ -220,7 +220,11 @@
         @push('scripts')
             <script>
                 $(document).ready(function() {
-                    $('#dosenTable').DataTable();
+                    $('#dosenTable').DataTable({
+                        responsive: true,
+                        autoWidth: false,
+                        scrollX: true
+                    });
                 });
             </script>
         @endpush

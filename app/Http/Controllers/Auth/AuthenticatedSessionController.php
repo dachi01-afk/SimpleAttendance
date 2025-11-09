@@ -36,17 +36,6 @@ class AuthenticatedSessionController extends Controller
             ]);
         }
 
-        // if ($user->role->name_role === 'admin') {
-        //     return redirect()->route('admin.dashboard');
-        // } elseif ($user->role->name_role === 'dosen') {
-        //     return redirect()->route('dosen.dashboard');
-        // } elseif ($user->role->name_role === 'mahasiswa') {
-        //     return redirect()->route('mahasiswa.dashboard');
-        // }
-
-        // // fallback jika role tidak terdefinisi
-        // return redirect()->route('login')->withErrors(['role' => 'Role pengguna tidak dikenal.']);
-        // redirect berdasarkan role
         switch ($user->role->name_role) {
             case 'admin':
                 return redirect()->route('admin.dashboard');

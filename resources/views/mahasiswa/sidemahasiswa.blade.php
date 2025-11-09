@@ -1,9 +1,10 @@
 <div class="h-full px-3 pb-4 overflow-y-auto">
     <ul class="space-y-2 font-medium">
-        <!-- DASHBOARD -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white bg-kampus-utama rounded-lg">
-                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            <a href="{{ route('mahasiswa.dashboard') }}"
+                class="sidebar-link flex items-center p-2 rounded-lg 
+                {{ request()->routeIs('mahasiswa.dashboard') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4 10v10h5v-6h6v6h5V10" />
                 </svg>
@@ -13,7 +14,9 @@
 
         <!-- Daftar Matakuliah -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('mahasiswa.data_matakuliah') }}"
+                class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg
+            {{ request()->routeIs('mahasiswa.data_matakuliah') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 20l9-5-9-5-9 5 9 5zM3 10l9-5 9 5" />
@@ -24,7 +27,9 @@
 
         <!-- Presensi -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('mahasiswa.presensi_mahasiswa') }}"
+                class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg
+            {{ request()->routeIs('mahasiswa.presensi_mahasiswa') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <!-- Check Circle icon -->
@@ -37,7 +42,9 @@
 
         <!-- Riwayat Presensi -->
         <li>
-            <a href="#" class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg">
+            <a href="{{ route('mahasiswa.riwayat_presensi') }}"
+                class="sidebar-link flex items-center p-2 text-white hover:bg-kampus-utama rounded-lg
+            {{ request()->routeIs('mahasiswa.riwayat_presensi') ? 'bg-kampus-utama text-white' : 'text-white hover:bg-kampus-utama' }}">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <!-- Clock icon -->
