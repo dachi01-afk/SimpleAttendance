@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('dosen_id')->constrained('dosens')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('mata_kuliah_id')->constrained('mata_kuliahs')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('kelas_id')->constrained('kelas')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('hari');
+            $table->unsignedTinyInteger('hari')
+                ->comment('1=Senin, 2=Selasa, 3=Rabu, 4=Kamis, 5=Jumat, 6=Sabtu, 7=Minggu');
             $table->time('jam_mulai');
             $table->time('jam_selesai');
             $table->string('semester');

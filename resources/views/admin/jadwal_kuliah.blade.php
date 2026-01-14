@@ -8,6 +8,18 @@
         editData: {}
     }">
 
+        @php
+            $hariList = [
+                1 => 'Senin',
+                2 => 'Selasa',
+                3 => 'Rabu',
+                4 => 'Kamis',
+                5 => 'Jumat',
+                6 => 'Sabtu',
+                7 => 'Minggu',
+            ];
+        @endphp
+
         <!-- Breadcrumb & Greeting -->
         <nav class="flex mb-2" aria-label="Breadcrumb">
             <h1 class="text-2xl font-semibold text-gray-900 mb-2">Data Jadwal Kuliah</h1>
@@ -57,7 +69,7 @@
                             <td class="px-4 py-2">{{ $jadwal->dosen->nama_dosen }}</td>
                             <td class="px-4 py-2">{{ $jadwal->mataKuliah->nama_mk }}</td>
                             <td class="px-4 py-2">{{ $jadwal->kelas->nama_kelas }}</td>
-                            <td class="px-4 py-2">{{ $jadwal->hari }}</td>
+                            <td class="px-4 py-2">{{ $jadwal->nama_hari }}</td>
                             <td class="px-4 py-2 text-center whitespace-nowrap">
                                 {{ date('H:i', strtotime($jadwal->jam_mulai)) }} -
                                 {{ date('H:i', strtotime($jadwal->jam_selesai)) }}
@@ -154,13 +166,13 @@
                             @enderror
                         </div>
 
+
                         <div class="mb-3">
                             <label for="hari" class="block">Hari</label>
-                            <select id="hari" name="hari" class="w-full border rounded p-2" required
-                                value="{{ old('hari') }}">
+                            <select name="hari" class="w-full border rounded p-2" required>
                                 <option value="">-- Pilih Hari --</option>
-                                @foreach (['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'] as $hari)
-                                    <option value="{{ $hari }}">{{ $hari }}</option>
+                                @foreach ($hariList as $key => $label)
+                                    <option value="{{ $key }}">{{ $label }}</option>
                                 @endforeach
                             </select>
                             @error('hari')
@@ -279,11 +291,12 @@
 
                         <div class="mb-3">
                             <label for="hari" class="block">Hari</label>
-                            <select id="hari" name="hari" class="w-full border rounded p-2" required
-                                :value="editData.hari">
-                                <option value="">-- Pilih Hari --</option>
-                                @foreach (['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'] as $hari)
-                                    <option value="{{ $hari }}">{{ $hari }}</option>
+                            <select name="hari" class="w-full border rounded p-2" required>
+                                @foreach ($hariList as $key => $label)
+                                    <option value="{{ $key }}"
+                                        :selected="editData.hari == {{ $key }}">
+                                        {{ $label }}
+                                    </option>
                                 @endforeach
                             </select>
                             @error('hari')

@@ -25,9 +25,9 @@
                     <tbody>
                         @forelse ($jadwals as $jadwal)
                             <tr class="even:bg-gray-100">
+                                <td class="px-4 py-2">{{ $jadwal->nama_hari }}</td>
                                 <td class="px-4 py-2">{{ $jadwal->mataKuliah->nama_mk }}</td>
                                 <td class="px-4 py-2">{{ $jadwal->kelas->nama_kelas }}</td>
-                                <td class="px-4 py-2">{{ $jadwal->hari }}</td>
                                 <td class="px-4 py-2 text-center whitespace-nowrap">
                                     {{ date('H:i', strtotime($jadwal->jam_mulai)) }} -
                                     {{ date('H:i', strtotime($jadwal->jam_selesai)) }}

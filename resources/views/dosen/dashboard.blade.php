@@ -92,7 +92,7 @@
             <!-- Left Column: Upcoming Classes/Attendance Today -->
             <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-lg border border-gray-200 overflow-x-auto">
                 <h2 class="text-2xl font-semibold text-gray-800 mb-4">Jadwal Kuliah Hari Ini - <span
-                        class="text-kampus-utama">{{ $hariIni }}</span></h2>
+                        class="text-kampus-utama">{{ $namaHari }}</span></h2>
 
                 {{-- data tabel --}}
                 <div class="w-full overflow-x-auto">
@@ -114,7 +114,7 @@
                                     <td class="px-4 py-2">{{ $jadwal->dosen->nama_dosen }}</td>
                                     <td class="px-4 py-2">{{ $jadwal->mataKuliah->nama_mk }}</td>
                                     <td class="px-4 py-2">{{ $jadwal->kelas->nama_kelas }}</td>
-                                    <td class="px-4 py-2">{{ $jadwal->hari }}</td>
+                                    <td class="px-4 py-2">{{ $jadwal->nama_hari }}</td>
                                     <td class="px-4 py-2 text-center whitespace-nowrap">
                                         {{ date('H:i', strtotime($jadwal->jam_mulai)) }} -
                                         {{ date('H:i', strtotime($jadwal->jam_selesai)) }}

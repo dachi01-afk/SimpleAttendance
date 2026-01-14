@@ -16,14 +16,14 @@ class MahasiswaPresensiController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
+        $mahasiswa = Mahasiswa::where('user_id', $user->id)->firstOrFail();
 
-        // Ambil semua jadwal kuliah yang diikuti mahasiswa
-        $jadwalHariIni = JadwalKuliah::whereHas('mahasiswas', function ($q) use ($mahasiswa) {
-            $q->where('mahasiswa_id', $mahasiswa->id);
-        })
-            ->where('hari', strtolower(Carbon::now()->translatedFormat('l'))) // Ini juga sudah benar
-            ->with(['mataKuliah', 'dosen'])
+        // Hari ini dalam angka (1 = Senin, 7 = Minggu)
+        $hariIni = Carbon::now()->dayOfWeekIso;
+
+        $jadwalHariIni = JadwalKuliah::with(['mataKuliah', 'dosen'])
+            ->where('kelas_id', $mahasiswa->kelas_id)
+            ->where('hari', $hariIni)
             ->get();
 
         return view('mahasiswa.presensi_mahasiswa', compact('jadwalHariIni'));

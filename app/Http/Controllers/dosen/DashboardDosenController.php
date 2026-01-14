@@ -21,9 +21,19 @@ class DashboardDosenController extends Controller
         $totalMataKuliah = MataKuliah::count();
         $totalKelas = Kelas::count();
 
-        // Ambil hari ini (misalnya "Senin", "Selasa", dll)
-        $hariIni = Carbon::now()->locale('id')->dayName;
-        $hariIni = ucfirst($hariIni); // kapital huruf pertama biar sesuai di DB
+        // Hari ini dalam angka (1-7)
+        $hariIni = Carbon::now()->dayOfWeekIso;
+
+        // Untuk tampilan teks
+        $namaHari = [
+            1 => 'Senin',
+            2 => 'Selasa',
+            3 => 'Rabu',
+            4 => 'Kamis',
+            5 => 'Jumat',
+            6 => 'Sabtu',
+            7 => 'Minggu',
+        ][$hariIni];
 
         // Ambil jadwal kuliah hari ini
         $jadwals = JadwalKuliah::with(['dosen', 'mataKuliah', 'kelas'])
@@ -37,7 +47,7 @@ class DashboardDosenController extends Controller
             'totalMataKuliah',
             'totalKelas',
             'jadwals',
-            'hariIni'
+            'namaHari'
         ));
     }
 }

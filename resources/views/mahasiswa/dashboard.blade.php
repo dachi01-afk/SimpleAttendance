@@ -81,7 +81,7 @@
             <!-- Jadwal Kuliah Hari Ini -->
             <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 overflow-x-auto">
                 <h2 class="text-2xl font-semibold text-gray-800 mb-4">
-                    Jadwal Kuliah Hari Ini - <span class="text-blue-600">{{ $hariIni }}</span>
+                    Jadwal Kuliah Hari Ini - <span class="text-blue-600">{{ $namaHari }}</span>
                 </h2>
 
                 <table id="jadwalKuliahTableMahasiswaDashboard" class="min-w-full border border-gray-200">
@@ -102,7 +102,7 @@
                                 <td class="px-4 py-2 text-center">{{ $jadwal->dosen->nama_dosen }}</td>
                                 <td class="px-4 py-2 text-center">{{ $jadwal->mataKuliah->nama_mk }}</td>
                                 <td class="px-4 py-2 text-center">{{ $jadwal->kelas->nama_kelas }}</td>
-                                <td class="px-4 py-2 text-center">{{ $jadwal->hari }}</td>
+                                <td class="px-4 py-2 text-center">{{ $jadwal->nama_hari }}</td>
                                 <td class="px-4 py-2 text-center whitespace-nowrap">
                                     {{ date('H:i', strtotime($jadwal->jam_mulai)) }} -
                                     {{ date('H:i', strtotime($jadwal->jam_selesai)) }}
