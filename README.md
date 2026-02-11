@@ -1,65 +1,111 @@
+# SimpleAttendance 📋
+
 <!-- portfolio:desc -->
-testing deskripsi
+**SimpleAttendance** is a web-based attendance system built with the **Laravel** framework. It provides a simple and efficient way to manage employee presence, replacing manual paper logs with a streamlined digital solution.
 <!-- portfolio:desc:end -->
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+---
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 📌 Project Description
+This application focuses on the core essentials of attendance tracking. It allows users to record their daily check-ins and check-outs, while providing administrators with a clear overview of attendance data. It is designed to be lightweight, easy to deploy, and user-friendly.
 
-## About Laravel
+## ✨ Key Features
+* **User Authentication:** Secure login system for employees and admins.
+* **Check-In/Check-Out:** Simple interface to log work hours.
+* **Attendance History:** Users can view their own attendance records.
+* **Admin Dashboard:** Centralized view to monitor daily attendance.
+* **Report Generation:** Basic reporting features for monthly attendance.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Tech Stack
+* **Framework:** Laravel (PHP)
+* **Database:** MySQL
+* **Frontend:** Blade Templates, Bootstrap/Tailwind (adjust based on your actual UI)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Installation Guide
 
-## Learning Laravel
+Since this project is built with Laravel, please follow these steps carefully to set it up on your local machine.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisites
+Ensure you have the following installed:
+* [PHP](https://www.php.net/) (Version 8.x recommended)
+* [Composer](https://getcomposer.org/)
+* [MySQL](https://www.mysql.com/)
+* [Node.js & NPM](https://nodejs.org/) (Optional, if using Vite/Mix)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Step-by-Step Setup
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/dachi01-afk/Presensi.git](https://github.com/dachi01-afk/Presensi.git)
+    ```
 
-## Laravel Sponsors
+2.  **Navigate to Project Directory**
+    ```bash
+    cd Presensi
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3.  **Install PHP Dependencies**
+    This will install all the libraries required by Laravel.
+    ```bash
+    composer install
+    ```
 
-### Premium Partners
+4.  **Install Frontend Dependencies (Optional)**
+    If the project uses npm for asset compilation:
+    ```bash
+    npm install
+    npm run build
+    ```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+5.  **Environment Configuration**
+    Duplicate the example configuration file.
+    ```bash
+    cp .env.example .env
+    ```
 
-## Contributing
+6.  **Generate Application Key**
+    This command generates the encryption key required by Laravel.
+    ```bash
+    php artisan key:generate
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7.  **Configure Database**
+    * Create a new empty database in your MySQL (e.g., named `presensi_db`).
+    * Open the `.env` file and update your database credentials:
+        ```env
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=presensi_db
+        DB_USERNAME=root
+        DB_PASSWORD=
+        ```
 
-## Code of Conduct
+8.  **Run Migrations**
+    Create the necessary tables in your database.
+    ```bash
+    php artisan migrate
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    *(Optional: If you have dummy data, run seeders)*
+    ```bash
+    php artisan db:seed
+    ```
 
-## Security Vulnerabilities
+9.  **Run the Application**
+    Start the local development server.
+    ```bash
+    php artisan serve
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    The application will be accessible at: `http://127.0.0.1:8000`
 
-## License
+## 👤 Usage
+1.  Open your browser and go to `http://127.0.0.1:8000`.
+2.  **For Admin:** Login using the admin credentials (check `DatabaseSeeder.php` if you don't know them).
+3.  **For Users:** Register a new account (if enabled) or use provided credentials to start logging attendance.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+**Developed by [Dachi](https://github.com/dachi01-afk)**
